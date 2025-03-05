@@ -1,30 +1,71 @@
-.operator, .number{
-    text-align: center;
-    background-color: grey;
+body {
+    font-family: Arial, sans-serif;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
-#display{
+.container {
     background-color: black;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+#display {
+    background-color: rgba(128, 128, 128, 0.481);
     color: white;
+    font-size: 2rem;
     text-align: right;
-    font-size: 30px;
     padding: 20px;
 }
 
-td{
-    border-radius: 10px;
-    padding: 10px 30px 10px 30px;
+table {
+    width: 100%;
 }
 
-#C{
-    background-color: rgb(30, 0, 255);
+td {
+    width: 25%;
+    height: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgba(128, 128, 128, 0.481);
+    color: white;
+    transition: background 0.2s ease;
 }
 
-#equal{
-    background-color: rgb(128, 0, 83);
+td:hover {
+    background-color: #555;
 }
 
-td:hover{
-    background-color: lightgray;
+.operator {
+    background-color: #ff9500;
+    color: white;
 }
 
+.operator:hover {
+    background-color: #e08900;
+}
+
+#equal {
+    background-color: #28d751d0;
+    color: white;
+}
+
+#equal:hover {
+    background-color: #28d75195;
+}
+
+#C {
+    background-color: #ff3b30;
+    color: white;
+}
+
+#C:hover {
+    background-color: #d62b1a;
+}
