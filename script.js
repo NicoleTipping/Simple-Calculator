@@ -16,10 +16,10 @@ Array.from(operators).forEach(element => {element.addEventListener('click', take
 function inputNumbers() {
     var currentValue = this.textContent.trim();
     if(display.innerText == '0') {
-        display.innerHTML = `<span>${currentValue}</span>`;
+        display.textContent = `<span>${currentValue}</span>`;
     }
     else
-        display.innerHTML += `<span>${currentValue}</span>`;
+        display.textContent += `<span>${currentValue}</span>`;
     if(turn){
         op1 += currentValue;
     }
@@ -40,7 +40,7 @@ function clearAll() {
     op1 = 0;
     op2 = 0;
     turn = true;
-    display.innerHTML = `<span>${answer}</span>`;
+    display.textContent = `<span>${answer}</span>`;
 }
 
 equalButton.addEventListener('click', calculate);
@@ -57,11 +57,11 @@ function calculate() {
         case "*": answer = op1 * op2; break;
         case "/": answer = op1 / op2;
             if (op2 == 0) {
-                display.innerHTML = `<span>infinity</span>`;
+                display.textContent = `<span>infinity</span>`;
                 return;
             } break;
     }
-    display.innerHTML = `<span>${answer} </span>`;
+    display.textContent = `<span>${answer} </span>`;
     op1 = answer;
     op2 = '';
     turn = true;
