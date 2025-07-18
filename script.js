@@ -68,8 +68,8 @@ function operate(num1, num2, op) {
 
 equalButton.addEventListener('click', () => {
     answer = operate(num1, num2, op)
-    num1 = answer
-    display.textContent = answer
+    num1 = Math.round(answer * 100) / 100
+    display.textContent = Math.round(answer * 100) / 100
 })
 
 decimal.addEventListener('click', (e) => {
