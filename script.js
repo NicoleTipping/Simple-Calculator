@@ -10,72 +10,60 @@ let num2 = ''
 let op
 let turn = true
 let answer = 0
-let currentValue = ''
 
 numberButtons.forEach((numberButton) => { numberButton.addEventListener('click', handleButClick) })
 
-operatorButtons.forEach((operatorButton) => { operatorButton.addEventListener('click', handleOpClick) })
-
 function handleButClick(e) {
-    if(display.textContent.slice(-1) == '.') {
-        num1 = currentValue
-        num1 += e.target.textContent
-        display.textContent = num1
-    }
-    else if (turn) {
+ 
+    if (turn) {
         num1 += e.target.textContent
         display.textContent = num1
     } else {
-        num2 = e.target.textContent
-        display.textContent += num2
+        num2 += e.target.textContent
+        display.textContent = num2
     }
 }
 
-function handleOpClick(e) {
-    turn = false
-    op = e.target.textContent
-    display.textContent += op
-}
+operatorButtons.forEach((operatorButton) => { operatorButton.addEventListener('click', handleOpClick) })
 
-clearButton.addEventListener('click', () => {
-    turn = true
-    display.textContent = '0'
-    num1 = ''
-    num2 = ''
-})
+function handleOpClick(e) {
+        turn = false
+        op = e.target.textContent
+        display.textContent = op
+}
 
 function operate(num1, num2, op) {
     num1 = parseFloat(num1)
     num2 = parseFloat(num2)
     switch (op) {
-        case "+":
-            return num1 + num2
+        case "+": answer = num1 + num2
             break;
-        case "-":
-            return num1 - num2
+        case "-": answer = num1 - num2
             break;
-        case "*":
-            return num1 * num2
+        case "*": answer = num1 * num2
             break;
-        case "/":
-            return num1 / num2
+        case "/": answer = num1 / num2
             if (num2 == 0) {
                 display.textContent = 'Infinity'
             }
             break;
     }
+    display.textContent = answer
+    num1 = answer
 }
 
-equalButton.addEventListener('click', () => {
-    answer = operate(num1, num2, op)
-    num1 = Math.round(answer * 100) / 100
-    display.textContent = Math.round(answer * 100) / 100
+clearButton.addEventListener('click', () => {
+    display.textContent = '0'
+    answer = 0
+    num1 = 0
+    num2 = 0
+    turn = true;
 })
 
-decimal.addEventListener('click', (e) => {
-    decimal = e.target.textContent
-    if (!display.innerHTML.includes('.')) {
-        currentValue = display.textContent += decimal
+equalButton.addEventListener('click', operate)
+
+decimal.addEventListener('click', () => {
+    if (display.textContent.includes('.')) {
+        decimal.style.pointerEvents = 'none';
     }
-    return;
 })

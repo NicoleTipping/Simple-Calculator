@@ -12,40 +12,59 @@ body {
     background-color: black;
     padding: 20px;
     border-radius: 12px;
+    max-width: 500px;
 }
 
 #display {
-    background-color: rgba(128, 128, 128, 0.481);
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(156, 156, 156, 0.481);
     color: white;
     font-size: 2rem;
-    text-align: right;
+    font-weight: bold;
     padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 5px;
 }
 
-table {
-    width: 100%;
-}
-
-td {
-    width: 25%;
+button {
     height: 60px;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     border-radius: 8px;
-    background-color: rgba(128, 128, 128, 0.481);
+    background-color: rgba(156, 156, 156, 0.481);
     color: white;
-    transition: background 0.2s ease;
+    border: 2px solid black;
 }
 
-td:hover {
-    background-color: #555;
+.operator {
+    width: 25%;
+}
+
+.number,
+#C {
+    width: calc(100% / 3);;
+}
+
+#equalContainer {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.number {
+    box-shadow: inset 2px 2px rgb(138, 137, 137);
+}
+
+.number:hover {
+    background-color: rgba(192, 192, 192, 0.481);
 }
 
 .operator {
     background-color: #ff9500;
-    color: white;
+    box-shadow: inset 2px 2px #fec06a;
 }
 
 .operator:hover {
@@ -55,6 +74,8 @@ td:hover {
 #equal {
     background-color: #28d751d0;
     color: white;
+    width: 100%;
+    box-shadow: inset 2px 2px #3be563d0;
 }
 
 #equal:hover {
@@ -64,6 +85,7 @@ td:hover {
 #C {
     background-color: #ff3b30;
     color: white;
+    box-shadow: inset 2px 2px #fd8781;
 }
 
 #C:hover {

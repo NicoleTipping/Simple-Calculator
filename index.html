@@ -10,38 +10,30 @@
 
 <body>
     <div class="container">
-        <table>
-            <tr>
-                <td id="display" colspan="4">0</td>
-            </tr>
-            <tr>
-                <td class="operator">+</td>
-                <td class="operator">-</td>
-                <td class="operator">*</td>
-                <td class="operator">/</td>
-            </tr>
-            <tr>
-                <td class="number">7</td>
-                <td class="number">8</td>
-                <td class="number">9</td>
-                <td id="equal" rowspan="4">=</td>
-            </tr>
-            <tr>
-                <td class="number">4</td>
-                <td class="number">5</td>
-                <td class="number">6</td>
-            </tr>
-            <tr>
-                <td class="number">1</td>
-                <td class="number">2</td>
-                <td class="number">3</td>
-            </tr>
-            <tr>
-                <td id="decimal">.</td>
-                <td class="number">0</td>
-                <td id="C">C</td>
-            </tr>
-        </table>
+        <div id="displayContainer">
+            <div id="display">0</div>
+        </div>
+        <div>
+            <div id="operatorContainer">
+                <button class="operator">+</button><button class="operator">-</button><button
+                    class="operator">*</button><button class="operator">/</button>
+            </div>
+            <div id="topNums">
+                <button class="number">7</button><button class="number">8</button><button class="number">9</button>
+            </div>
+            <div id="midNums">
+                <button class="number">4</button><button class="number">5</button><button class="number">6</button>
+            </div>
+            <div id="botNums">
+                <button class="number">1</button><button class="number">2</button><button class="number">3</button>
+            </div>
+            <div id="botRowContainer">
+                <button id="decimal" class="number">.</button><button class="number">0</button><button id="C">C</button>
+            </div>
+        </div>
+        <div id="equalDiv">
+            <button id="equal">=</button>
+        </div>
     </div>
     <script src="script.js"></script>
 
