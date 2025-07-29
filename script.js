@@ -5,8 +5,7 @@ let equalButton = document.querySelector('#equal');
 let clearButton = document.querySelector('#C');
 let decimal = document.querySelector('#decimal');
 
-let num1 = ''
-let num2 = ''
+let num1 = '', num2 = ''
 let op
 let turn = true
 let answer = 0
@@ -49,18 +48,21 @@ function operate(num1, num2, op) {
             break;
     }
     display.textContent = answer
-    num1 = answer
 }
 
 clearButton.addEventListener('click', () => {
     display.textContent = '0'
     answer = 0
-    num1 = 0
-    num2 = 0
+    num1 = ''
+    num2 = ''
     turn = true;
 })
 
-equalButton.addEventListener('click', operate)
+equalButton.addEventListener('click', () => {
+    operate(num1, num2, op)
+    num1 = answer
+    num2 = ''
+})
 
 decimal.addEventListener('click', () => {
     if (display.textContent.includes('.')) {
