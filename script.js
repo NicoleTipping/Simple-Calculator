@@ -13,7 +13,6 @@ let answer = 0
 numberButtons.forEach((numberButton) => { numberButton.addEventListener('click', handleButClick) })
 
 function handleButClick(e) {
- 
     if (turn) {
         num1 += e.target.textContent
         display.textContent = num1
@@ -23,12 +22,27 @@ function handleButClick(e) {
     }
 }
 
+decimal.addEventListener('click', () => {
+    if (display.innerHTML.includes('.')) {
+        decimal.disabled = true;
+    }
+})
+
 operatorButtons.forEach((operatorButton) => { operatorButton.addEventListener('click', handleOpClick) })
 
 function handleOpClick(e) {
+    if (num1 && num2 && op) {
+        operate(num1, num2, op)
+        num2 = ''
+        num1 = answer
+        op = e.target.textContent
+        decimal.disabled = false
+    } else {
         turn = false
         op = e.target.textContent
         display.textContent = op
+        decimal.disabled = false
+    }
 }
 
 function operate(num1, num2, op) {
@@ -55,17 +69,13 @@ clearButton.addEventListener('click', () => {
     answer = 0
     num1 = ''
     num2 = ''
-    turn = true;
+    turn = true
+    decimal.disabled = false
 })
 
 equalButton.addEventListener('click', () => {
     operate(num1, num2, op)
     num1 = answer
     num2 = ''
-})
-
-decimal.addEventListener('click', () => {
-    if (display.textContent.includes('.')) {
-        decimal.style.pointerEvents = 'none';
-    }
+    decimal.disabled = false
 })
