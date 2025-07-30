@@ -61,7 +61,7 @@ function operate(num1, num2, op) {
             }
             break;
     }
-    display.textContent = answer
+    display.textContent = Math.round(answer * 100) / 100
 }
 
 clearButton.addEventListener('click', () => {
